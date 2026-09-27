@@ -150,8 +150,32 @@ testFacebookPost()
 - Apps Script Script Properties
 - Apps Script Time-based Triggers
 
-## Author
+## 📌 Project Implementation
+
+Built to automate Facebook Page publishing using Google Apps Script, Google Sheets, Google Drive, and the Facebook Graph API.
+
+A sanitized n8n workflow file is included for demonstration.
+
+👉 [View / Download App Script Code](Code.gs)
+
+## 📞 Author:
 
 **Faheem Abbas**
 
-AI Automation | n8n | Workflow Automation | Google Apps Script
+AI Automation Specialist | n8n Expert | AI Agents | AI-Powered Business Automation | Lead Generation | API Integrations | Calling Agents
+
+For custom implementation or commercial use, please <strong>Contact on:</strong>
+<br><br>
+<a href="https://wa.me/923002120566">
+  <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+</a>
+  <a href="https://www.linkedin.com/in/faheem-abbas-ai-automation-specialist/">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+  <a href="mailto:info.bluemoonways@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+</a>
+
+
+
+**#AI #AIAutomation #n8n #RAG #airtable #Pinecone #WhatsAppAutomation #Qdrant #AIEngineering #CallingAgents #bluemoonways**

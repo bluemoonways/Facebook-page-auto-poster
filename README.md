@@ -1,65 +1,76 @@
-# Facebook Page Auto Poster
+# 📘 Facebook Page Auto Poster
 
-Automated Facebook Page publishing system built with **Google Apps Script**, **Google Sheets**, **Google Drive**, and the **Facebook Graph API**.
+🚀 Automated Facebook Page publishing system built with **Google Apps Script**, **Google Sheets**, **Google Drive**, and the **Facebook Graph API**.
 
-## Features
+This system reads queued posts from Google Sheets, prepares the content, optionally retrieves images from Google Drive, publishes posts to a Facebook Page, and updates the publishing status automatically.
 
-- Automated Facebook Page posting
-- Daily scheduled publishing
-- Google Sheets content queue
-- Optional Google Drive images
-- Automatic GitHub project link
-- Automatic portfolio link
-- Facebook Page access-token validation
-- Publishing status tracking
-- Published timestamp tracking
-- Failed-post handling
-- Script Lock protection
-- Text and image posts
+---
 
-## Workflow
+## ✨ Features
+
+- 📤 Automated Facebook Page posting
+- ⏰ Daily scheduled publishing
+- 📊 Google Sheets content queue
+- 🖼️ Optional Google Drive images
+- 🔗 Automatic GitHub project link
+- 🌐 Automatic portfolio link
+- 🔐 Facebook Page access-token validation
+- 📌 Publishing status tracking
+- 🕒 Published timestamp tracking
+- ⚠️ Failed-post handling
+- 🔒 Script Lock protection
+- 📝 Text and image posts
+
+---
+
+## 🔄 Workflow
 
 ```text
-Google Sheet
-     ↓
-Find next unpublished post
-     ↓
-Prepare content
-     ├── GitHub Link
-     ├── Portfolio Link
-     └── Optional Drive Image
-     ↓
-Facebook Graph API
-     ↓
-Facebook Page
-     ↓
-Update Sheet
-Published / Failed
+📊 Google Sheet
+      ↓
+🔎 Find Next Unpublished Post
+      ↓
+📝 Prepare Post Content
+      ├── 🔗 GitHub Link
+      ├── 🌐 Portfolio Link
+      └── 🖼️ Optional Drive Image
+      ↓
+📡 Facebook Graph API
+      ↓
+📘 Facebook Page
+      ↓
+📊 Update Google Sheet
+      ├── ✅ Published
+      └── ❌ Failed
 ```
 
-## Google Sheet Headers
+---
 
-The script searches for these header names:
+## 📊 Google Sheet Structure
+
+The script automatically searches for the following header names:
 
 | Header | Purpose |
 |---|---|
-| Post Content | Main Facebook post |
-| GitHub Link | Project/repository URL |
-| Image Link | Google Drive image URL |
-| Facebook Status | Publishing status |
-| Published At | Publication date/time |
-| Repo | Optional repository/reference |
-| Serial | Optional serial number |
+| 📝 Post Content | Main Facebook post content |
+| 🔗 GitHub Link | Project/repository URL |
+| 🖼️ Image Link | Google Drive image URL |
+| 📌 Facebook Status | Publishing status |
+| 🕒 Published At | Publication date and time |
+| 📁 Repo | Optional repository/reference |
+| 🔢 Serial | Optional post serial number |
 
-## Required Script Properties
+---
 
-The public-safe version keeps private configuration out of the GitHub repository.
+## ⚙️ Configuration
 
-In Google Apps Script:
+The public-safe version keeps private credentials and configuration outside the GitHub repository.
+
+In **Google Apps Script**, open:
 
 **Project Settings → Script Properties**
 
-Add:
+Add the following properties:
 
 ```text
 FB_PAGE_ID=your_facebook_page_id
@@ -67,115 +78,146 @@ FB_PAGE_ACCESS_TOKEN=your_page_access_token
 FACEBOOK_POSTS_SPREADSHEET_ID=your_google_spreadsheet_id
 ```
 
-Do not put real values in `Code.gs`.
+⚠️ **Never put real values inside `Code.gs`.**
 
-## Security
+---
 
-Never commit:
+## 🔒 Security
 
-- Facebook Page Access Tokens
-- API keys
-- Passwords
-- OAuth secrets
-- Private Google credentials
-- Service-account files
-- Private spreadsheet IDs
+Never commit the following information to GitHub:
 
-The public version reads Facebook credentials and the Google Spreadsheet ID from Apps Script Script Properties.
+- 🔑 Facebook Page Access Tokens
+- 🔐 API Keys
+- 🔒 Passwords
+- 🪪 OAuth Secrets
+- ☁️ Private Google Credentials
+- 📄 Service Account Files
+- 🔗 Private Spreadsheet IDs
 
-## Portfolio
+The public-safe version retrieves sensitive configuration from **Google Apps Script Script Properties**.
 
-The script currently appends the following public portfolio URL to posts:
+---
+
+## 🌐 Portfolio
+
+The automation automatically appends the public portfolio link to Facebook posts:
 
 ```text
 https://bluemoonways.vercel.app/
 ```
 
-Update the URL in `Code.gs` if your portfolio changes.
+Update the portfolio URL in `Code.gs` if it changes in the future.
 
-## Scheduling
+---
 
-Run:
+## ⏰ Scheduling
+
+The project supports automated daily publishing through an Apps Script time-based trigger.
+
+### Create Daily Trigger
 
 ```text
 setupDailyFacebookTrigger()
 ```
 
-to create the daily publishing trigger.
-
-Run:
+### Remove Daily Trigger
 
 ```text
 removeDailyFacebookTrigger()
 ```
 
-to remove it.
+The current trigger is configured to run around **2 PM** according to the Apps Script project's timezone.
 
-## Testing
+---
 
-Check Facebook authorization:
+## 🧪 Testing
+
+### 🔍 Check Facebook Authorization
+
+Run:
 
 ```text
 checkFacebookAuthorization()
 ```
 
-Test a Facebook post:
+This checks whether the configured Facebook Page Access Token can access the Page.
+
+### 📤 Test Facebook Post
+
+Run:
 
 ```text
 testFacebookPost()
 ```
 
-## Main Functions
+This publishes a test post to the Facebook Page.
 
-- `getFacebookPageId_()` — reads the Facebook Page ID
-- `getFacebookAccessToken_()` — reads the Page Access Token
-- `hasValidFacebookAccessToken_()` — validates Page access
-- `checkFacebookAuthorization()` — manual authorization check
-- `getDriveFileIdFromUrl_()` — extracts a Drive file ID
-- `getImageBlobFromDrive_()` — retrieves a Drive image
-- `postToFacebookPage_()` — publishes a text/image post
-- `testFacebookPost()` — publishes a test post
-- `setupDailyFacebookTrigger()` — creates daily publishing
-- `removeDailyFacebookTrigger()` — removes the publishing trigger
-- `publishNextFacebookPost()` — publishes the next queued post
+---
 
-## Tech Stack
+## 🛠️ Main Functions
 
-- Google Apps Script
-- JavaScript
-- Google Sheets
-- Google Drive
-- Facebook Graph API
-- Facebook Pages
-- Apps Script Script Properties
-- Apps Script Time-based Triggers
+| Function | Purpose |
+|---|---|
+| 🆔 `getFacebookPageId_()` | Reads the Facebook Page ID |
+| 🔑 `getFacebookAccessToken_()` | Reads the Facebook Page Access Token |
+| ✅ `hasValidFacebookAccessToken_()` | Validates Facebook Page access |
+| 🔍 `checkFacebookAuthorization()` | Manually checks authorization |
+| 🆔 `getDriveFileIdFromUrl_()` | Extracts a Google Drive file ID |
+| 🖼️ `getImageBlobFromDrive_()` | Retrieves an image from Google Drive |
+| 📤 `postToFacebookPage_()` | Publishes text or image posts |
+| 🧪 `testFacebookPost()` | Publishes a test post |
+| ⏰ `setupDailyFacebookTrigger()` | Creates the daily publishing trigger |
+| 🗑️ `removeDailyFacebookTrigger()` | Removes the publishing trigger |
+| 🚀 `publishNextFacebookPost()` | Publishes the next queued post |
 
-## Project Implementation
+---
 
-Built to automate Facebook Page publishing using Google Apps Script, Google Sheets, Google Drive, and the Facebook Graph API.
+## 💻 Tech Stack
 
-A sanitized n8n workflow file is included for demonstration.
+- 🟨 Google Apps Script
+- 💛 JavaScript
+- 📊 Google Sheets
+- 📁 Google Drive
+- 📘 Facebook Graph API
+- 📄 Facebook Pages
+- 🔐 Apps Script Script Properties
+- ⏰ Apps Script Time-based Triggers
 
-👉 [View / Download App Script Code](Code.gs)
+---
 
-## Author:
+## 🚀 Project Implementation
+
+Built to automate Facebook Page publishing using **Google Apps Script, Google Sheets, Google Drive, and the Facebook Graph API**.
+
+The system provides a spreadsheet-based content queue, automated publishing, optional image handling, status tracking, and scheduled Facebook Page posting.
+
+👉 [View / Download Apps Script Code](Code.gs)
+
+---
+
+## 👨‍💻 Author
 
 **Faheem Abbas**
 
-AI Automation Specialist | n8n Expert | AI Agents | AI-Powered Business Automation | Lead Generation | API Integrations | Calling Agents
+🤖 AI Automation Specialist | ⚙️ n8n Expert | 🧠 AI Agents | 🚀 AI-Powered Business Automation | 🎯 Lead Generation | 🔗 API Integrations | 📞 Calling Agents
 
-For custom implementation or commercial use, please <strong>Contact on:</strong>
-<br><br>
+### 📩 Contact
+
+For custom implementation or commercial use, please contact me:
+
+<br>
+
 <a href="https://wa.me/923002120566">
   <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
 </a>
-  <a href="https://www.linkedin.com/in/faheem-abbas-ai-automation-specialist/">
+
+<a href="https://www.linkedin.com/in/faheem-abbas-ai-automation-specialist/">
   <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
-  <a href="mailto:info.bluemoonways@gmail.com">
+
+<a href="mailto:info.bluemoonways@gmail.com">
   <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
 </a>
 
+<br><br>
 
-
-**#AI #AIAutomation #n8n #RAG #airtable #Pinecone #WhatsAppAutomation #Qdrant #AIEngineering #CallingAgents #bluemoonways**

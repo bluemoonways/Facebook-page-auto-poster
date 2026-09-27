@@ -150,7 +150,7 @@ testFacebookPost()
 - Apps Script Script Properties
 - Apps Script Time-based Triggers
 
-## 📌 Project Implementation
+## Project Implementation
 
 Built to automate Facebook Page publishing using Google Apps Script, Google Sheets, Google Drive, and the Facebook Graph API.
 
@@ -158,7 +158,7 @@ A sanitized n8n workflow file is included for demonstration.
 
 👉 [View / Download App Script Code](Code.gs)
 
-## 📞 Author:
+## Author:
 
 **Faheem Abbas**
 

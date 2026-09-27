@@ -64,13 +64,9 @@ The script automatically searches for the following header names:
 
 ## ⚙️ Configuration
 
-The public-safe version keeps private credentials and configuration outside the GitHub repository.
+The project uses Google Apps Script Script Properties for secure configuration.
 
-In **Google Apps Script**, open:
-
-**Project Settings → Script Properties**
-
-Add the following properties:
+Required properties:
 
 ```text
 FB_PAGE_ID=your_facebook_page_id
@@ -79,34 +75,6 @@ FACEBOOK_POSTS_SPREADSHEET_ID=your_google_spreadsheet_id
 ```
 
 ⚠️ **Never put real values inside `Code.gs`.**
-
----
-
-## 🔒 Security
-
-Never commit the following information to GitHub:
-
-- 🔑 Facebook Page Access Tokens
-- 🔐 API Keys
-- 🔒 Passwords
-- 🪪 OAuth Secrets
-- ☁️ Private Google Credentials
-- 📄 Service Account Files
-- 🔗 Private Spreadsheet IDs
-
-The public-safe version retrieves sensitive configuration from **Google Apps Script Script Properties**.
-
----
-
-## 🌐 Portfolio
-
-The automation automatically appends the public portfolio link to Facebook posts:
-
-```text
-https://bluemoonways.vercel.app/
-```
-
-Update the portfolio URL in `Code.gs` if it changes in the future.
 
 ---
 

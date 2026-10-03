@@ -1,4 +1,4 @@
-# 📘 Facebook Page Auto Poster
+# 📘 Facebook content Automation System
 
 🚀 Automated Facebook Page publishing system built with **Google Apps Script**, **Google Sheets**, **Google Drive**, and the **Facebook Graph API**.
 
